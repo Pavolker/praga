@@ -4,7 +4,7 @@ import { FormData, InitialAnalysisResult, FinalDiagnosis, Question } from "../ty
 const getClient = () => {
   const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey === 'placeholder-key') {
-    throw new Error("Chave da API Gemini ausente. Defina GEMINI_API_KEY no arquivo .env.local com sua chave real obtida em https://aistudio.google.com/app/apikey");
+    throw new Error("⚠️ Chave da API Gemini não configurada. Se você está usando Netlify, configure a variável de ambiente GEMINI_API_KEY nas configurações do site (Site configuration → Environment variables). Obtenha sua chave em: https://aistudio.google.com/app/apikey");
   }
   return new GoogleGenAI({ apiKey });
 };

@@ -2,9 +2,9 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { FormData, InitialAnalysisResult, FinalDiagnosis, Question } from "../types";
 
 const getClient = () => {
-  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.API_KEY || process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey === 'placeholder-key') {
-    throw new Error("⚠️ Chave da API Gemini não configurada. Se você está usando Netlify, configure a variável de ambiente GEMINI_API_KEY nas configurações do site (Site configuration → Environment variables). Obtenha sua chave em: https://aistudio.google.com/app/apikey");
+    throw new Error("⚠️ Chave da API Gemini não configurada. No Netlify, configure a variável VITE_GEMINI_API_KEY nas configurações do site (Site configuration → Environment variables). Obtenha sua chave em: https://aistudio.google.com/app/apikey");
   }
   return new GoogleGenAI({ apiKey });
 };

@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react(), tailwindcss()],
     define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || 'placeholder-key'),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || 'placeholder-key')
+      'process.env.API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.GEMINI_API_KEY || 'placeholder-key'),
+      'process.env.GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.GEMINI_API_KEY || 'placeholder-key')
     },
     resolve: {
       alias: {
